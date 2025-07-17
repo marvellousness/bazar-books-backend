@@ -126,7 +126,9 @@ data class Book(
     val description: String?,
     val categoryId: Int,
     val authorId: Int,
-    val createdAt: String? = null
+    val createdAt: String? = null,
+    val cover: String? = null,
+    val rating: Int = 0
 )
 
 @Serializable

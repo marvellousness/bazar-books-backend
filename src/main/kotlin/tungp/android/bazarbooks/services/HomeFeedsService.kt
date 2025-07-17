@@ -40,7 +40,9 @@ class HomeFeedsService {
         description = row[Books.description],
         categoryId = row[Books.categoryId],
         authorId = row[Books.authorId],
-        createdAt = row[Books.createdAt].toString()
+        createdAt = row[Books.createdAt].toString(),
+        cover = row[Books.cover],
+        rating = row[Books.rating]
     )
 
     private fun toVendor(row: ResultRow) = Vendor(
