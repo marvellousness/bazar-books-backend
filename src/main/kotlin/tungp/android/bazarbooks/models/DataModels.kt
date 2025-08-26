@@ -89,7 +89,7 @@ data class OrderItem(
 
 @Serializable
 enum class OrderStatus {
-    PENDING, CONFIRMED, SHIPPED, DELIVERED, CANCELLED
+    PENDING, CONFIRMED, SHIPPED, DELIVERED, CANCELLED, COMPLETED
 }
 
 @Serializable
