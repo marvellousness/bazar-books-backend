@@ -34,4 +34,12 @@ dependencies {
     testImplementation(libs.ktor.server.test.host)
     testImplementation(libs.kotlin.test.junit)
     testImplementation("io.mockk:mockk:1.13.4")
+
+    // JWT Authentication
+    implementation("io.ktor:ktor-server-auth:2.3.0")
+    implementation("io.ktor:ktor-server-auth-jwt:2.3.0")
+    implementation("com.auth0:java-jwt:4.4.0")
+
+    // BCrypt for password hashing
+    implementation("at.favre.lib:bcrypt:0.9.0")
 }

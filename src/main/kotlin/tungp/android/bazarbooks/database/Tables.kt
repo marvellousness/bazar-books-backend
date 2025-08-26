@@ -60,8 +60,6 @@ object Books : Table() {
     val description = text("description").nullable()
     val categoryId = integer("category_id").references(Categories.id)
     val createdAt = datetime("created_at").default(LocalDateTime.now())
-    val cover = varchar("cover", 255).nullable()
-    val rating = integer("rating").default(0)
     override val primaryKey = PrimaryKey(id)
 }
 

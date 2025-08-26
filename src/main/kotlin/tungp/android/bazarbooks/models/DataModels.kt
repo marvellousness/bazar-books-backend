@@ -89,7 +89,7 @@ data class OrderItem(
 
 @Serializable
 enum class OrderStatus {
-    PENDING, CONFIRMED, SHIPPED, DELIVERED, CANCELLED, COMPLETED
+    PENDING, CONFIRMED, SHIPPED, DELIVERED, CANCELLED
 }
 
 @Serializable
@@ -112,7 +112,7 @@ enum class PaymentStatus {
 data class Category(
     val id: Int? = null,
     val name: String,
-    val description: String?
+    val description: String
 )
 
 @Serializable
@@ -126,9 +126,7 @@ data class Book(
     val description: String?,
     val categoryId: Int,
     val authorId: Int,
-    val createdAt: String? = null,
-    val cover: String? = null,
-    val rating: Int = 0
+    val createdAt: String? = null
 )
 
 @Serializable

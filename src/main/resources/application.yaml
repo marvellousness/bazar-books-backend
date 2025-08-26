@@ -5,3 +5,8 @@ ktor:
     deployment:
         port: 8080
         development: true
+jwt:
+    issuer: "http://0.0.0.0:8080/"
+    audience: "users"
+    secret: "your-secret-key"
+    expiresIn: 3600000

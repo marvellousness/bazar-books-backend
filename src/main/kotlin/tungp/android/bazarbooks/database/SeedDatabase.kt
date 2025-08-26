@@ -4,73 +4,23 @@ import org.jetbrains.exposed.sql.insert
 
 fun seedDatabase() {
     // Insert sample categories
-    val categoryIds = mutableListOf<Int>()
-    Categories.insert {
+    val fictionRes = Categories.insert {
         it[Categories.name] = "Fiction"
         it[Categories.description] = "Fictional books"
-    }.resultedValues?.first()?.get(Categories.id)?.let { id -> categoryIds.add(id) }
+    }
+    val categoryId = fictionRes[Categories.id]
 
-    Categories.insert {
+    val nonfictionRes = Categories.insert {
         it[Categories.name] = "Non-Fiction"
         it[Categories.description] = "Non-fictional books"
-    }.resultedValues?.first()?.get(Categories.id)?.let { id -> categoryIds.add(id) }
-
-    Categories.insert {
-        it[Categories.name] = "Science Fiction"
-        it[Categories.description] = "Books about imagined futures, science, and technology."
-    }.resultedValues?.first()?.get(Categories.id)?.let { id -> categoryIds.add(id) }
-
-    Categories.insert {
-        it[Categories.name] = "Fantasy"
-        it[Categories.description] = "Books set in imaginary worlds, often with magic or supernatural elements."
-    }.resultedValues?.first()?.get(Categories.id)?.let { id -> categoryIds.add(id) }
-
-    Categories.insert {
-        it[Categories.name] = "Mystery"
-        it[Categories.description] = "Books that revolve around solving a crime or puzzle."
-    }.resultedValues?.first()?.get(Categories.id)?.let { id -> categoryIds.add(id) }
-
-    Categories.insert {
-        it[Categories.name] = "Thriller"
-        it[Categories.description] = "Fast-paced, suspenseful books."
-    }.resultedValues?.first()?.get(Categories.id)?.let { id -> categoryIds.add(id) }
-
-    Categories.insert {
-        it[Categories.name] = "Romance"
-        it[Categories.description] = "Books centered around a romantic relationship."
-    }.resultedValues?.first()?.get(Categories.id)?.let { id -> categoryIds.add(id) }
-
-    Categories.insert {
-        it[Categories.name] = "Horror"
-        it[Categories.description] = "Books designed to frighten, scare, or disgust."
-    }.resultedValues?.first()?.get(Categories.id)?.let { id -> categoryIds.add(id) }
-
-    Categories.insert {
-        it[Categories.name] = "History"
-        it[Categories.description] = "Books about past events."
-    }.resultedValues?.first()?.get(Categories.id)?.let { id -> categoryIds.add(id) }
-
-    Categories.insert {
-        it[Categories.name] = "Biography"
-        it[Categories.description] = "A book about a person's life written by someone else."
-    }.resultedValues?.first()?.get(Categories.id)?.let { id -> categoryIds.add(id) }
-
-    Categories.insert {
-        it[Categories.name] = "Science"
-        it[Categories.description] = "Books on scientific topics."
-    }.resultedValues?.first()?.get(Categories.id)?.let { id -> categoryIds.add(id) }
-
-    Categories.insert {
-        it[Categories.name] = "Technology"
-        it[Categories.description] = "Books about technology and engineering."
-    }.resultedValues?.first()?.get(Categories.id)?.let { id -> categoryIds.add(id) }
-
+    }
+    val catNonFictionId = nonfictionRes[Categories.id]
 
     // Insert sample users
     val aliceRes = Users.insert {
         it[Users.username] = "alice"
         it[Users.email] = "alice@example.com"
-        it[Users.passwordHash] = "hashed_password_1"
+        it[Users.passwordHash] = at.favre.lib.crypto.bcrypt.BCrypt.withDefaults().hashToString(12, "password123".toCharArray())
         it[Users.role] = "customer"
     }
     val userId = aliceRes[Users.id]
@@ -78,80 +28,119 @@ fun seedDatabase() {
     val bobRes = Users.insert {
         it[Users.username] = "bob"
         it[Users.email] = "bob@example.com"
-        it[Users.passwordHash] = "hashed_password_2"
+        it[Users.passwordHash] = at.favre.lib.crypto.bcrypt.BCrypt.withDefaults().hashToString(12, "password123".toCharArray())
         it[Users.role] = "customer"
     }
     val user2Id = bobRes[Users.id]
 
 
     // Demo Authors
-    val authorIds = mutableListOf<Int>()
-    for (i in 1..7) {
-        val authorId = Authors.insert {
-            it[name] = "Author $i"
-            it[biography] = "Biography for author $i."
-            it[profileImageUrl] = null
-            it[nationality] = "Nationality $i"
-            it[birthDate] = "198$i-01-01"
-            it[isVerified] = i % 2 == 0
-        }[Authors.id]
-        authorIds.add(authorId)
-    }
+    val author1Id = Authors.insert {
+        it[name] = "Dmitry Jemerov"
+        it[biography] = "Lead Kotlin at JetBrains."
+        it[profileImageUrl] = null
+        it[nationality] = "Russian"
+        it[birthDate] = "1977-06-10"
+        it[isVerified] = true
+    }[Authors.id]
+    val author2Id = Authors.insert {
+        it[name] = "Joshua Bloch"
+        it[biography] = "Legendary Java developer."
+        it[profileImageUrl] = null
+        it[nationality] = "American"
+        it[birthDate] = "1961-08-28"
+        it[isVerified] = true
+    }[Authors.id]
 
     // Demo Vendors
-    for (i in 1..5) {
-        Vendors.insert {
-            it[name] = "Vendor $i"
-            it[description] = "Description for vendor $i."
-            it[logoUrl] = null
-            it[websiteUrl] = "https://vendor$i.example.com"
-            it[rating] = (3.0 + i * 0.2).toFloat()
-            it[totalReviews] = (50 + i * 10).toFloat()
-            it[isVerified] = i % 2 != 0
-            it[isActive] = true
-        }
+    Vendors.insert {
+        it[name] = "BookMart"
+        it[description] = "Top-rated book vendor."
+        it[logoUrl] = null
+        it[websiteUrl] = null
+        it[rating] = 4.8f
+        it[totalReviews] = 154f
+        it[isVerified] = true
+        it[isActive] = true
+    }
+    Vendors.insert {
+        it[name] = "LibraryZone"
+        it[description] = "Quality books provider."
+        it[logoUrl] = null
+        it[websiteUrl] = "https://libraryzone.example.com"
+        it[rating] = 4.5f
+        it[totalReviews] = 97f
+        it[isVerified] = false
+        it[isActive] = true
     }
 
     // Demo SpecialOffers
-    for (i in 1..5) {
-        SpecialOffers.insert {
-            it[title] = "Offer $i"
-            it[description] = "Description for offer $i."
-            it[discountPercentage] = (10 + i * 2).toFloat()
-            it[discountAmount] = null
-            it[maxUsageCount] = 100 + i * 10
-            it[currentUsageCount] = 5 + i
-        }
+    SpecialOffers.insert {
+        it[title] = "Spring Sale 20% Off"
+        it[description] = "Save big on selected books this spring!"
+        it[discountPercentage] = 20f
+        it[discountAmount] = null
+        it[maxUsageCount] = 100
+        it[currentUsageCount] = 5
+    }
+    SpecialOffers.insert {
+        it[title] = "Best Seller Discount"
+        it[description] = "10% off all best-sellers!"
+        it[discountPercentage] = 10f
+        it[discountAmount] = null
+        it[maxUsageCount] = null
+        it[currentUsageCount] = 0
     }
 
-    // Insert 30 sample books with random categories
-    val bookIds = mutableListOf<Int>()
-    for (i in 1..30) {
-        val randomCategoryId = categoryIds.random()
-        val bookId = Books.insert {
+    // Insert sample books
+    val book1Res = Books.insert {
+        it[Books.title] = "Kotlin for Beginners"
+        it[Books.author] = "John Author"
+        it[Books.isbn] = "1234567890"
+        it[Books.price] = java.math.BigDecimal("19.99")
+        it[Books.stock] = 10
+        it[Books.description] = "A beginner's guide to Kotlin."
+        it[Books.categoryId] = categoryId
+        it[Books.authorId] = author1Id
+    }
+    val bookId = book1Res[Books.id]
+
+    val book2Res = Books.insert {
+        it[Books.title] = "Learning Java"
+        it[Books.author] = "Jane Developer"
+        it[Books.isbn] = "0987654321"
+        it[Books.price] = java.math.BigDecimal("29.99")
+        it[Books.stock] = 5
+        it[Books.description] = "Comprehensive Java teachings."
+        it[Books.categoryId] = catNonFictionId
+        it[Books.authorId] = author1Id
+    }
+    val book2Id = book2Res[Books.id]
+
+    // Insert additional books for pagination (>20 total)
+    for (i in 3..23) {
+        Books.insert {
             it[Books.title] = "Sample Book $i"
             it[Books.author] = "Author $i"
             it[Books.isbn] = "ISBN0000$i"
             it[Books.price] = java.math.BigDecimal.valueOf(10 + i.toDouble())
             it[Books.stock] = 5 + i
             it[Books.description] = "Description for sample book $i."
-            it[Books.categoryId] = randomCategoryId
-            it[Books.authorId] = authorIds.random()
-        }[Books.id]
-        bookIds.add(bookId)
+            it[Books.categoryId] = if (i % 2 == 0) categoryId else catNonFictionId
+            it[Books.authorId] = author1Id
+        }
     }
-
 
     // Add cart items
     CartItems.insert {
         it[CartItems.userId] = userId
-        it[CartItems.bookId] = bookIds.first()
+        it[CartItems.bookId] = bookId
         it[CartItems.quantity] = 2
         it[CartItems.price] = java.math.BigDecimal("19.99")
     }
     CartItems.insert {
-        it[CartItems.userId] = userId
-        it[CartItems.bookId] = bookIds.last()
+        it[CartItems.userId] = user2Id
+        it[CartItems.bookId] = book2Id
         it[CartItems.quantity] = 1
         it[CartItems.price] = java.math.BigDecimal("29.99")
     }
@@ -169,7 +158,7 @@ fun seedDatabase() {
     // Order items
     OrderItems.insert {
         it[OrderItems.orderId] = orderId
-        it[OrderItems.bookId] = bookIds.first()
+        it[OrderItems.bookId] = bookId
         it[OrderItems.quantity] = 2
         it[OrderItems.price] = java.math.BigDecimal("19.99")
         it[OrderItems.bookTitle] = "Kotlin for Beginners"
@@ -187,6 +176,8 @@ fun seedDatabase() {
     // Wishlists
     Wishlists.insert {
         it[Wishlists.userId] = user2Id
-        it[Wishlists.bookId] = bookIds.last()
+        it[Wishlists.bookId] = bookId
     }
+
+
 }

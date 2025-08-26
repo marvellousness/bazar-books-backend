@@ -92,7 +92,7 @@ class CartService {
                 )
             }
 
-        val totalItems = cartItems.sumOf { it.quantity }
+        val totalItems = cartItems.size
         val totalAmount = cartItems.sumOf { it.price * it.quantity }
 
         CartSummary(cartItems, totalItems, totalAmount)

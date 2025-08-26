@@ -8,10 +8,10 @@ import tungp.android.bazarbooks.models.*
 
 class HomeFeedsService {
     fun getHomeFeeds(): HomeFeeds = transaction {
-        val bestOffers = SpecialOffers.selectAll().limit(5).map { toSpecialOffer(it) }
-        val topOfWeeks = Books.selectAll().limit(7).map { toBook(it) }
-        val bestVendors = Vendors.selectAll().limit(5).map { toVendor(it) }
-        val bestAuthors = Authors.selectAll().limit(7).map { toAuthor(it) }
+        val bestOffers = SpecialOffers.selectAll().limit(3).map { toSpecialOffer(it) }
+        val topOfWeeks = Books.selectAll().limit(3).map { toBook(it) }
+        val bestVendors = Vendors.selectAll().limit(2).map { toVendor(it) }
+        val bestAuthors = Authors.selectAll().limit(2).map { toAuthor(it) }
         HomeFeeds(
             bestOffers = bestOffers,
             topOfWeeks = topOfWeeks,
@@ -40,9 +40,7 @@ class HomeFeedsService {
         description = row[Books.description],
         categoryId = row[Books.categoryId],
         authorId = row[Books.authorId],
-        createdAt = row[Books.createdAt].toString(),
-        cover = row[Books.cover],
-        rating = row[Books.rating]
+        createdAt = row[Books.createdAt].toString()
     )
 
     private fun toVendor(row: ResultRow) = Vendor(
