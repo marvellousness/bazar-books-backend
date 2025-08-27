@@ -3,10 +3,10 @@ ktor:
         modules:
             - tungp.android.bazarbooks.ApplicationKt.module
     deployment:
-        port: 8080
+        port: 8181
         development: true
 jwt:
-    issuer: "http://0.0.0.0:8080/"
+    issuer: "http://0.0.0.0:8181/"
     audience: "users"
     secret: "your-secret-key"
     expiresIn: 3600000
