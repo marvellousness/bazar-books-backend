@@ -1,0 +1,28 @@
+{
+  "authors": [
+    {
+      "name": "Stephen King",
+      "profileImageUrl": "https://covers.openlibrary.org/a/id/7127409-M.jpg"
+    },
+    {
+      "name": "George R. Martin",
+      "profileImageUrl": "https://covers.openlibrary.org/a/id/6387401-M.jpg"
+    },
+    {
+      "name": "E. L. James",
+      "profileImageUrl": "https://covers.openlibrary.org/a/id/14362742-M.jpg"
+    },
+    {
+      "name": "Agatha Christie",
+      "profileImageUrl": "https://covers.openlibrary.org/b/id/505653-M.jpg"
+    },
+    {
+      "name": "E. B. White",
+      "profileImageUrl": "https://covers.openlibrary.org/a/id/6390049-M.jpg"
+    },
+    {
+      "name": "Neil Gaiman",
+      "profileImageUrl": "https://covers.openlibrary.org/a/id/7277125-M.jpg"
+    }
+  ]
+}

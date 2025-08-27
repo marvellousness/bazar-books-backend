@@ -1,0 +1,76 @@
+{
+  "vendors": [
+    {
+      "name": "Emma Johnson",
+      "logoUrl": "https://covers.openlibrary.org/b/id/9171544-L.jpg",
+      "rating": 5,
+      "description": "Bookworm Paradise"
+    },
+    {
+      "name": "David Garcia",
+      "logoUrl": "https://covers.openlibrary.org/b/id/12816871-L.jpg",
+      "rating": 4,
+      "description": "Literary Haven"
+    },
+    {
+      "name": "Sophia Martinez",
+      "logoUrl": "https://covers.openlibrary.org/b/id/12645178-L.jpg",
+      "rating": 5,
+      "description": "Poetic Dreams"
+    },
+    {
+      "name": "Michael Brown",
+      "logoUrl": "https://covers.openlibrary.org/b/id/12713304-L.jpg",
+      "rating": 4,
+      "description": "Verse Valley"
+    },
+    {
+      "name": "Olivia Wilson",
+      "logoUrl": "https://covers.openlibrary.org/b/id/12740772-L.jpg",
+      "rating": 4,
+      "description": "Stationery Stars"
+    },
+    {
+      "name": "James Taylor",
+      "logoUrl": "https://covers.openlibrary.org/b/id/12577577-L.jpg",
+      "rating": 5,
+      "description": "Paper Paradise"
+    },
+    {
+      "name": "Emily Adams",
+      "logoUrl": "https://covers.openlibrary.org/b/id/12851679-L.jpg",
+      "rating": 3,
+      "description": "Special Selections"
+    },
+    {
+      "name": "Daniel Lee",
+      "logoUrl": "https://covers.openlibrary.org/b/id/12810671-L.jpg",
+      "rating": 4,
+      "description": "Paperback Palace"
+    },
+    {
+      "name": "Ava Wright",
+      "logoUrl": "https://covers.openlibrary.org/b/id/12810709-L.jpg",
+      "rating": 5,
+      "description": "Poetic Wonders"
+    },
+    {
+      "name": "Noah Parker",
+      "logoUrl": "https://covers.openlibrary.org/b/id/12697617-L.jpg",
+      "rating": 4,
+      "description": "Premium Picks"
+    },
+    {
+      "name": "Isabella King",
+      "logoUrl": "https://covers.openlibrary.org/b/id/13293386-L.jpg",
+      "rating": 5,
+      "description": "Stationery Shop"
+    },
+    {
+      "name": "William Green",
+      "logoUrl": "https://covers.openlibrary.org/b/id/10543646-L.jpg",
+      "rating": 4,
+      "description": "Chapter Corner"
+    }
+  ]
+}

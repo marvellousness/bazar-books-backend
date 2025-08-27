@@ -112,7 +112,8 @@ enum class PaymentStatus {
 data class Category(
     val id: Int? = null,
     val name: String,
-    val description: String
+    val description: String,
+    val coverUrl: String? = null
 )
 
 @Serializable
@@ -160,7 +161,7 @@ data class PaymentRequest(
 )
 
 @Serializable
-data class CategoryRequest(val name: String, val description: String)
+data class CategoryRequest(val name: String, val description: String, val coverUrl: String? = null)
 
 // Response DTOs
 @Serializable

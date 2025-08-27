@@ -67,6 +67,7 @@ object Categories : Table() {
     val id = integer("id").autoIncrement()
     val name = varchar("name", 100).uniqueIndex()
     val description = text("description").nullable()
+    val coverUrl = varchar("cover_url", 255).nullable()
     val createdAt = datetime("created_at").default(LocalDateTime.now())
     override val primaryKey = PrimaryKey(id)
 }

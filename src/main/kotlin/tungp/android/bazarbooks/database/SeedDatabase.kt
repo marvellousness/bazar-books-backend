@@ -4,17 +4,34 @@ import org.jetbrains.exposed.sql.insert
 
 fun seedDatabase() {
     // Insert sample categories
-    val fictionRes = Categories.insert {
-        it[Categories.name] = "Fiction"
-        it[Categories.description] = "Fictional books"
-    }
-    val categoryId = fictionRes[Categories.id]
+    val categories = listOf(
+        mapOf("name" to "Fiction", "description" to "Novels, short stories, and other imaginative literature", "coverUrl" to "https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=387&auto=format&fit=crop"),
+        mapOf("name" to "Non-Fiction", "description" to "Factual literature based on real events, people, and information", "coverUrl" to "https://images.unsplash.com/photo-1589998059171-988d887df646?q=80&w=1776&auto=format&fit=crop"),
+        mapOf("name" to "Science Fiction", "description" to "Fiction with imaginative concepts like futuristic science and technology", "coverUrl" to "https://images.unsplash.com/photo-1518497927675-245083503cdc?q=80&w=1770&auto=format&fit=crop"),
+        mapOf("name" to "Mystery", "description" to "Fiction dealing with the solution of a crime or the unraveling of secrets", "coverUrl" to "https://images.unsplash.com/photo-1567301074221-5c754f2fb48e?q=80&w=1771&auto=format&fit=crop"),
+        mapOf("name" to "Romance", "description" to "Stories centered on romantic relationships and love", "coverUrl" to "https://images.unsplash.com/photo-1474552226712-ac0f0961a954?q=80&w=1771&auto=format&fit=crop"),
+        mapOf("name" to "Fantasy", "description" to "Fiction featuring magical and supernatural elements", "coverUrl" to "https://images.unsplash.com/photo-1520209759809-a9bcb6cb3241?q=80&w=1888&auto=format&fit=crop"),
+        mapOf("name" to "Biography", "description" to "Detailed description of a person's life and achievements", "coverUrl" to "https://images.unsplash.com/photo-1516979187457-637abb4f9353?q=80&w=1770&auto=format&fit=crop"),
+        mapOf("name" to "History", "description" to "Books focusing on past events and their implications", "coverUrl" to "https://images.unsplash.com/photo-1461360370896-922624d12aa1?q=80&w=1774&auto=format&fit=crop"),
+        mapOf("name" to "Self-Help", "description" to "Books offering advice for personal improvement", "coverUrl" to "https://images.unsplash.com/photo-1535572290543-960a8046f5af?q=80&w=1770&auto=format&fit=crop"),
+        mapOf("name" to "Thriller", "description" to "Fiction designed to hold tension and excitement for readers", "coverUrl" to "https://images.unsplash.com/photo-1543847473-dc60889684ec?q=80&w=1887&auto=format&fit=crop"),
+        mapOf("name" to "Business", "description" to "Books about entrepreneurship, management, and corporate strategies", "coverUrl" to "https://images.unsplash.com/photo-1553028826-cc8584e3e767?q=80&w=1770&auto=format&fit=crop"),
+        mapOf("name" to "Science", "description" to "Books about scientific discoveries, theories, and research", "coverUrl" to "https://images.unsplash.com/photo-1507413245164-6160d8298b31?q=80&w=1770&auto=format&fit=crop"),
+        mapOf("name" to "Travel", "description" to "Books about destinations, cultures, and travel experiences", "coverUrl" to "https://images.unsplash.com/photo-1499591934245-40b55745b905?q=80&w=1772&auto=format&fit=crop"),
+        mapOf("name" to "Cooking", "description" to "Books featuring recipes, cooking techniques, and culinary journeys", "coverUrl" to "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=1770&auto=format&fit=crop"),
+        mapOf("name" to "Comics & Graphic Novels", "description" to "Illustrated stories and narratives in sequential art form", "coverUrl" to "https://images.unsplash.com/photo-1608889476518-53c1fa250402?q=80&w=1780&auto=format&fit=crop")
+    )
 
-    val nonfictionRes = Categories.insert {
-        it[Categories.name] = "Non-Fiction"
-        it[Categories.description] = "Non-fictional books"
+    val categoryIds = categories.map { category ->
+        Categories.insert {
+            it[name] = category["name"]!!
+            it[description] = category["description"]!!
+            it[coverUrl] = category["coverUrl"]!!
+        }[Categories.id]
     }
-    val catNonFictionId = nonfictionRes[Categories.id]
+
+    val categoryId = categoryIds[0]
+    val catNonFictionId = categoryIds[1]
 
     // Insert sample users
     val aliceRes = Users.insert {
@@ -35,43 +52,67 @@ fun seedDatabase() {
 
 
     // Demo Authors
-    val author1Id = Authors.insert {
-        it[name] = "Dmitry Jemerov"
-        it[biography] = "Lead Kotlin at JetBrains."
-        it[profileImageUrl] = null
-        it[nationality] = "Russian"
-        it[birthDate] = "1977-06-10"
-        it[isVerified] = true
-    }[Authors.id]
-    val author2Id = Authors.insert {
-        it[name] = "Joshua Bloch"
-        it[biography] = "Legendary Java developer."
-        it[profileImageUrl] = null
-        it[nationality] = "American"
-        it[birthDate] = "1961-08-28"
-        it[isVerified] = true
-    }[Authors.id]
+    val authors = listOf(
+        mapOf("name" to "Stephen King", "profileImageUrl" to "https://covers.openlibrary.org/a/id/7127409-M.jpg"),
+        mapOf("name" to "George R. Martin", "profileImageUrl" to "https://covers.openlibrary.org/a/id/6387401-M.jpg"),
+        mapOf("name" to "E. L. James", "profileImageUrl" to "https://covers.openlibrary.org/a/id/14362742-M.jpg"),
+        mapOf("name" to "Agatha Christie", "profileImageUrl" to "https://covers.openlibrary.org/b/id/505653-M.jpg"),
+        mapOf("name" to "E. B. White", "profileImageUrl" to "https://covers.openlibrary.org/a/id/6390049-M.jpg"),
+        mapOf("name" to "Neil Gaiman", "profileImageUrl" to "https://covers.openlibrary.org/a/id/7277125-M.jpg")
+    )
+
+    val biographies = listOf(
+        "An influential author in the horror genre.",
+        "Creator of epic fantasy worlds.",
+        "Known for captivating romance novels.",
+        "The queen of mystery fiction.",
+        "Beloved author of children's classics.",
+        "Master of modern fantasy and mythology."
+    )
+
+    val nationalities = listOf("American", "British", "Canadian", "Australian")
+
+    val authorIds = authors.mapIndexed { index, author ->
+        Authors.insert {
+            it[name] = author["name"] as String
+            it[profileImageUrl] = author["profileImageUrl"] as String
+            it[biography] = biographies.getOrNull(index) ?: "A prolific author."
+            it[nationality] = nationalities.random()
+            it[birthDate] = "19${(50..99).random()}-${(1..12).random().toString().padStart(2, '0')}-${(1..28).random().toString().padStart(2, '0')}"
+            it[isVerified] = true
+        }[Authors.id]
+    }
+
+    val author1Id = authorIds[0]
+    val author2Id = authorIds[1]
 
     // Demo Vendors
-    Vendors.insert {
-        it[name] = "BookMart"
-        it[description] = "Top-rated book vendor."
-        it[logoUrl] = null
-        it[websiteUrl] = null
-        it[rating] = 4.8f
-        it[totalReviews] = 154f
-        it[isVerified] = true
-        it[isActive] = true
-    }
-    Vendors.insert {
-        it[name] = "LibraryZone"
-        it[description] = "Quality books provider."
-        it[logoUrl] = null
-        it[websiteUrl] = "https://libraryzone.example.com"
-        it[rating] = 4.5f
-        it[totalReviews] = 97f
-        it[isVerified] = false
-        it[isActive] = true
+    val vendors = listOf(
+        mapOf("name" to "Emma Johnson", "logoUrl" to "https://covers.openlibrary.org/b/id/9171544-L.jpg", "rating" to 5, "description" to "Bookworm Paradise"),
+        mapOf("name" to "David Garcia", "logoUrl" to "https://covers.openlibrary.org/b/id/12816871-L.jpg", "rating" to 4, "description" to "Literary Haven"),
+        mapOf("name" to "Sophia Martinez", "logoUrl" to "https://covers.openlibrary.org/b/id/12645178-L.jpg", "rating" to 5, "description" to "Poetic Dreams"),
+        mapOf("name" to "Michael Brown", "logoUrl" to "https://covers.openlibrary.org/b/id/12713304-L.jpg", "rating" to 4, "description" to "Verse Valley"),
+        mapOf("name" to "Olivia Wilson", "logoUrl" to "https://covers.openlibrary.org/b/id/12740772-L.jpg", "rating" to 4, "description" to "Stationery Stars"),
+        mapOf("name" to "James Taylor", "logoUrl" to "https://covers.openlibrary.org/b/id/12577577-L.jpg", "rating" to 5, "description" to "Paper Paradise"),
+        mapOf("name" to "Emily Adams", "logoUrl" to "https://covers.openlibrary.org/b/id/12851679-L.jpg", "rating" to 3, "description" to "Special Selections"),
+        mapOf("name" to "Daniel Lee", "logoUrl" to "https://covers.openlibrary.org/b/id/12810671-L.jpg", "rating" to 4, "description" to "Paperback Palace"),
+        mapOf("name" to "Ava Wright", "logoUrl" to "https://covers.openlibrary.org/b/id/12810709-L.jpg", "rating" to 5, "description" to "Poetic Wonders"),
+        mapOf("name" to "Noah Parker", "logoUrl" to "https://covers.openlibrary.org/b/id/12697617-L.jpg", "rating" to 4, "description" to "Premium Picks"),
+        mapOf("name" to "Isabella King", "logoUrl" to "https://covers.openlibrary.org/b/id/13293386-L.jpg", "rating" to 5, "description" to "Stationery Shop"),
+        mapOf("name" to "William Green", "logoUrl" to "https://covers.openlibrary.org/b/id/10543646-L.jpg", "rating" to 4, "description" to "Chapter Corner")
+    )
+
+    vendors.forEach { vendor ->
+        Vendors.insert {
+            it[name] = vendor["name"] as String
+            it[description] = vendor["description"] as String
+            it[logoUrl] = vendor["logoUrl"] as String
+            it[websiteUrl] = "https://www.${(vendor["name"] as String).replace(" ", "").lowercase()}.com"
+            it[rating] = (vendor["rating"] as Int).toFloat()
+            it[totalReviews] = (50..500).random().toFloat()
+            it[isVerified] = true
+            it[isActive] = true
+        }
     }
 
     // Demo SpecialOffers
