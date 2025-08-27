@@ -36,6 +36,12 @@ class BookService {
             it[stock] = book.stock
             it[description] = book.description
             it[categoryId] = book.categoryId
+            it[authorId] = book.authorId
+            it[coverUrl] = book.coverUrl
+            it[publishedYear] = book.publishedYear
+            it[publisher] = book.publisher
+            it[numberOfPages] = book.numberOfPages
+            it[rating] = book.rating
         }
         val insertedId = result[Books.id]
         getBookById(insertedId)!!
@@ -50,6 +56,12 @@ class BookService {
             it[stock] = book.stock
             it[description] = book.description
             it[categoryId] = book.categoryId
+            it[authorId] = book.authorId
+            it[coverUrl] = book.coverUrl
+            it[publishedYear] = book.publishedYear
+            it[publisher] = book.publisher
+            it[numberOfPages] = book.numberOfPages
+            it[rating] = book.rating
         } > 0
     }
 
@@ -67,6 +79,11 @@ class BookService {
         authorId = row[Books.authorId],
         description = row[Books.description],
         categoryId = row[Books.categoryId],
+        coverUrl = row[Books.coverUrl],
+        publishedYear = row[Books.publishedYear],
+        publisher = row[Books.publisher],
+        numberOfPages = row[Books.numberOfPages],
+        rating = row[Books.rating],
         createdAt = row[Books.createdAt].format(DateTimeFormatter.ISO_LOCAL_DATE_TIME)
     )
 }

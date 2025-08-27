@@ -1,0 +1,100 @@
+{
+  "books": [
+    {
+      "coverUrl": "https://covers.openlibrary.org/b/id/13151170-L.jpg",
+      "description": "A magical story about following your dreams and listening to your heart.",
+      "isbn": "9780062315007",
+      "numberOfPages": 208,
+      "price": 14.99,
+      "publishedYear": 1988,
+      "publisher": "HarperOne",
+      "stock": 42,
+      "rating": 4,
+      "title": "The Alchemist"
+    },
+    {
+      "coverUrl": "https://covers.openlibrary.org/b/id/12634691-L.jpg",
+      "description": "A story of friendship, betrayal, and redemption set against the backdrop of Afghanistan's tumultuous history.",
+      "isbn": "9781400033416",
+      "numberOfPages": 371,
+      "price": 16.99,
+      "publishedYear": 2003,
+      "publisher": "Riverhead Books",
+      "stock": 27,
+      "rating": 5,
+      "title": "The Kite Runner"
+    },
+    {
+      "coverUrl": "https://covers.openlibrary.org/b/id/13151170-L.jpg",
+      "description": "A magical story about following your dreams and listening to your heart.",
+      "isbn": "9780062315007",
+      "numberOfPages": 208,
+      "price": 14.99,
+      "publishedYear": 1988,
+      "publisher": "HarperOne",
+      "stock": 42,
+      "rating": 4,
+      "title": "The Alchemist"
+    },
+    {
+      "coverUrl": "https://covers.openlibrary.org/b/id/13151170-L.jpg",
+      "description": "A magical story about following your dreams and listening to your heart.",
+      "isbn": "9780062315007",
+      "numberOfPages": 208,
+      "price": 14.99,
+      "publishedYear": 1988,
+      "publisher": "HarperOne",
+      "stock": 42,
+      "rating": 4,
+      "title": "The Alchemist"
+    },
+    {
+      "coverUrl": "https://covers.openlibrary.org/b/id/12634691-L.jpg",
+      "description": "A story of friendship, betrayal, and redemption set against the backdrop of Afghanistan's tumultuous history.",
+      "isbn": "9781400033416",
+      "numberOfPages": 371,
+      "price": 16.99,
+      "publishedYear": 2003,
+      "publisher": "Riverhead Books",
+      "stock": 27,
+      "rating": 5,
+      "title": "The Kite Runner"
+    },
+    {
+      "coverUrl": "https://covers.openlibrary.org/b/id/14416194-L.jpg",
+      "description": "A tale of two sisters in France during World War II.",
+      "isbn": "9780143127550",
+      "numberOfPages": 440,
+      "price": 18.99,
+      "publishedYear": 2015,
+      "publisher": "St. Martin's Press",
+      "stock": 15,
+      "rating": 4,
+      "title": "The Nightingale"
+    },
+    {
+      "coverUrl": "https://covers.openlibrary.org/b/id/13151170-L.jpg",
+      "description": "A magical story about following your dreams and listening to your heart.",
+      "isbn": "9780062315007",
+      "numberOfPages": 208,
+      "price": 14.99,
+      "publishedYear": 1988,
+      "publisher": "HarperOne",
+      "stock": 42,
+      "rating": 4,
+      "title": "The Alchemist"
+    },
+    {
+      "coverUrl": "https://covers.openlibrary.org/b/id/12634691-L.jpg",
+      "description": "A story of friendship, betrayal, and redemption set against the backdrop of Afghanistan's tumultuous history.",
+      "isbn": "9781400033416",
+      "numberOfPages": 371,
+      "price": 16.99,
+      "publishedYear": 2003,
+      "publisher": "Riverhead Books",
+      "stock": 27,
+      "rating": 5,
+      "title": "The Kite Runner"
+    }
+  ]
+}

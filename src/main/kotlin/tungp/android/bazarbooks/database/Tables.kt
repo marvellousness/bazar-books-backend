@@ -59,6 +59,11 @@ object Books : Table() {
     val stock = integer("stock").default(0)
     val description = text("description").nullable()
     val categoryId = integer("category_id").references(Categories.id)
+    val coverUrl = varchar("cover_url", 255).nullable()
+    val publishedYear = integer("published_year").nullable()
+    val publisher = varchar("publisher", 100).nullable()
+    val numberOfPages = integer("number_of_pages").nullable()
+    val rating = float("rating").nullable()
     val createdAt = datetime("created_at").default(LocalDateTime.now())
     override val primaryKey = PrimaryKey(id)
 }

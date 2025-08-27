@@ -127,6 +127,11 @@ data class Book(
     val description: String?,
     val categoryId: Int,
     val authorId: Int,
+    val coverUrl: String? = null,
+    val publishedYear: Int? = null,
+    val publisher: String? = null,
+    val numberOfPages: Int? = null,
+    val rating: Float? = null,
     val createdAt: String? = null
 )
 

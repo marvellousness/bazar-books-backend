@@ -1,6 +1,7 @@
 package tungp.android.bazarbooks.database
 
 import org.jetbrains.exposed.sql.insert
+import org.jetbrains.exposed.dao.id.EntityID
 
 fun seedDatabase() {
     // Insert sample categories
@@ -24,7 +25,7 @@ fun seedDatabase() {
 
     val categoryIds = categories.map { category ->
         Categories.insert {
-            it[name] = category["name"]!!
+            it[name] = category["name"] as String
             it[description] = category["description"]!!
             it[coverUrl] = category["coverUrl"]!!
         }[Categories.id]
@@ -134,62 +135,56 @@ fun seedDatabase() {
     }
 
     // Insert sample books
-    val book1Res = Books.insert {
-        it[Books.title] = "Kotlin for Beginners"
-        it[Books.author] = "John Author"
-        it[Books.isbn] = "1234567890"
-        it[Books.price] = java.math.BigDecimal("19.99")
-        it[Books.stock] = 10
-        it[Books.description] = "A beginner's guide to Kotlin."
-        it[Books.categoryId] = categoryId
-        it[Books.authorId] = author1Id
-    }
-    val bookId = book1Res[Books.id]
+    val books = listOf(
+        mapOf("coverUrl" to "https://covers.openlibrary.org/b/id/13151170-L.jpg", "description" to "A magical story about following your dreams and listening to your heart.", "isbn" to "9780062315007", "numberOfPages" to 208, "price" to 14.99, "publishedYear" to 1988, "publisher" to "HarperOne", "stock" to 42, "rating" to 4, "title" to "The Alchemist"),
+        mapOf("coverUrl" to "https://covers.openlibrary.org/b/id/12634691-L.jpg", "description" to "A story of friendship, betrayal, and redemption set against the backdrop of Afghanistan's tumultuous history.", "isbn" to "9781400033416", "numberOfPages" to 371, "price" to 16.99, "publishedYear" to 2003, "publisher" to "Riverhead Books", "stock" to 27, "rating" to 5, "title" to "The Kite Runner"),
+        mapOf("coverUrl" to "https://covers.openlibrary.org/b/id/14416194-L.jpg", "description" to "A tale of two sisters in France during World War II.", "isbn" to "9780143127550", "numberOfPages" to 440, "price" to 18.99, "publishedYear" to 2015, "publisher" to "St. Martin's Press", "stock" to 15, "rating" to 4, "title" to "The Nightingale")
+    )
 
-    val book2Res = Books.insert {
-        it[Books.title] = "Learning Java"
-        it[Books.author] = "Jane Developer"
-        it[Books.isbn] = "0987654321"
-        it[Books.price] = java.math.BigDecimal("29.99")
-        it[Books.stock] = 5
-        it[Books.description] = "Comprehensive Java teachings."
-        it[Books.categoryId] = catNonFictionId
-        it[Books.authorId] = author1Id
-    }
-    val book2Id = book2Res[Books.id]
-
-    // Insert additional books for pagination (>20 total)
-    for (i in 3..23) {
+    val bookIds = books.map { book ->
+        val randomAuthorIndex = (0 until authorIds.size).random()
+        val randomCategoryIndex = (0 until categories.size).random()
+        val authorId = authorIds[randomAuthorIndex]
+        val categoryId = categoryIds[randomCategoryIndex]
+        val authorName = authors[randomAuthorIndex]["name"] as String
         Books.insert {
-            it[Books.title] = "Sample Book $i"
-            it[Books.author] = "Author $i"
-            it[Books.isbn] = "ISBN0000$i"
-            it[Books.price] = java.math.BigDecimal.valueOf(10 + i.toDouble())
-            it[Books.stock] = 5 + i
-            it[Books.description] = "Description for sample book $i."
-            it[Books.categoryId] = if (i % 2 == 0) categoryId else catNonFictionId
-            it[Books.authorId] = author1Id
-        }
+            it[Books.authorId] = authorId
+            it[Books.categoryId] = categoryId
+            it[title] = book["title"] as String
+            it[author] = authorName
+            it[isbn] = book["isbn"] as String
+            it[price] = (book["price"] as Double).toBigDecimal()
+            it[stock] = book["stock"] as Int
+            it[description] = book["description"] as String
+            it[coverUrl] = book["coverUrl"] as String
+            it[publishedYear] = book["publishedYear"] as Int
+            it[publisher] = book["publisher"] as String
+            it[numberOfPages] = book["numberOfPages"] as Int
+            it[rating] = (book["rating"] as Int).toFloat()
+        }[Books.id]
     }
+
+    val bookId = bookIds[0]
+    val book2Id = bookIds[1]
 
     // Add cart items
     CartItems.insert {
         it[CartItems.userId] = userId
         it[CartItems.bookId] = bookId
         it[CartItems.quantity] = 2
-        it[CartItems.price] = java.math.BigDecimal("19.99")
+        it[CartItems.price] = (books[0]["price"] as Double).toBigDecimal()
     }
     CartItems.insert {
         it[CartItems.userId] = user2Id
         it[CartItems.bookId] = book2Id
         it[CartItems.quantity] = 1
-        it[CartItems.price] = java.math.BigDecimal("29.99")
+        it[CartItems.price] = (books[1]["price"] as Double).toBigDecimal()
     }
 
     // Sample orders
     val orderRes = Orders.insert {
         it[Orders.userId] = userId
-        it[Orders.totalAmount] = java.math.BigDecimal("39.98")
+        it[Orders.totalAmount] = ((books[0]["price"] as Double) * 2).toBigDecimal()
         it[Orders.status] = "COMPLETED"
         it[Orders.shippingAddress] = "123 Main St, Cityville"
         it[Orders.paymentMethod] = "Credit Card"
@@ -201,14 +196,14 @@ fun seedDatabase() {
         it[OrderItems.orderId] = orderId
         it[OrderItems.bookId] = bookId
         it[OrderItems.quantity] = 2
-        it[OrderItems.price] = java.math.BigDecimal("19.99")
-        it[OrderItems.bookTitle] = "Kotlin for Beginners"
+        it[OrderItems.price] = (books[0]["price"] as Double).toBigDecimal()
+        it[OrderItems.bookTitle] = books[0]["title"] as String
     }
 
     // Payment for order
     Payments.insert {
         it[Payments.orderId] = orderId
-        it[Payments.amount] = java.math.BigDecimal("39.98")
+        it[Payments.amount] = ((books[0]["price"] as Double) * 2).toBigDecimal()
         it[Payments.paymentMethod] = "Credit Card"
         it[Payments.status] = "COMPLETED"
         it[Payments.transactionId] = "txn123"
