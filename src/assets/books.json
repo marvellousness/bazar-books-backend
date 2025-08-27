@@ -1,100 +1,49 @@
 {
   "books": [
     {
-      "coverUrl": "https://covers.openlibrary.org/b/id/13151170-L.jpg",
-      "description": "A magical story about following your dreams and listening to your heart.",
-      "isbn": "9780062315007",
-      "numberOfPages": 208,
-      "price": 14.99,
-      "publishedYear": 1988,
-      "publisher": "HarperOne",
-      "stock": 42,
-      "rating": 4,
-      "title": "The Alchemist"
+      "title": "The Bane Chronicles",
+      "authorName": "Maureen Johnson",
+      "coverUrl": "https://covers.openlibrary.org/b/id/13151170-L.jpg"
     },
     {
-      "coverUrl": "https://covers.openlibrary.org/b/id/12634691-L.jpg",
-      "description": "A story of friendship, betrayal, and redemption set against the backdrop of Afghanistan's tumultuous history.",
-      "isbn": "9781400033416",
-      "numberOfPages": 371,
-      "price": 16.99,
-      "publishedYear": 2003,
-      "publisher": "Riverhead Books",
-      "stock": 27,
-      "rating": 5,
-      "title": "The Kite Runner"
+      "title": "Koralina",
+      "authorName": "Neil Gaiman",
+      "coverUrl": "https://covers.openlibrary.org/b/id/12634691-L.jpg"
     },
     {
-      "coverUrl": "https://covers.openlibrary.org/b/id/13151170-L.jpg",
-      "description": "A magical story about following your dreams and listening to your heart.",
-      "isbn": "9780062315007",
-      "numberOfPages": 208,
-      "price": 14.99,
-      "publishedYear": 1988,
-      "publisher": "HarperOne",
-      "stock": 42,
-      "rating": 4,
-      "title": "The Alchemist"
+      "title": "Red, White & Royal Blue",
+      "authorName": "Casey McQuiston",
+      "coverUrl": "https://covers.openlibrary.org/b/id/9171544-L.jpg"
     },
     {
-      "coverUrl": "https://covers.openlibrary.org/b/id/13151170-L.jpg",
-      "description": "A magical story about following your dreams and listening to your heart.",
-      "isbn": "9780062315007",
-      "numberOfPages": 208,
-      "price": 14.99,
-      "publishedYear": 1988,
-      "publisher": "HarperOne",
-      "stock": 42,
-      "rating": 4,
-      "title": "The Alchemist"
+      "title": "Twisted Lies",
+      "authorName": "Ana Huang",
+      "coverUrl": "https://covers.openlibrary.org/b/id/12816871-L.jpg"
     },
     {
-      "coverUrl": "https://covers.openlibrary.org/b/id/12634691-L.jpg",
-      "description": "A story of friendship, betrayal, and redemption set against the backdrop of Afghanistan's tumultuous history.",
-      "isbn": "9781400033416",
-      "numberOfPages": 371,
-      "price": 16.99,
-      "publishedYear": 2003,
-      "publisher": "Riverhead Books",
-      "stock": 27,
-      "rating": 5,
-      "title": "The Kite Runner"
+      "title": "Fourth Wing",
+      "authorName": "Rebecca Yarros",
+      "coverUrl": "https://covers.openlibrary.org/b/id/14407898-L.jpg"
     },
     {
-      "coverUrl": "https://covers.openlibrary.org/b/id/14416194-L.jpg",
-      "description": "A tale of two sisters in France during World War II.",
-      "isbn": "9780143127550",
-      "numberOfPages": 440,
-      "price": 18.99,
-      "publishedYear": 2015,
-      "publisher": "St. Martin's Press",
-      "stock": 15,
-      "rating": 4,
-      "title": "The Nightingale"
+      "title": "Surrendered Single",
+      "authorName": "Laura Doyle",
+      "coverUrl": "https://covers.openlibrary.org/b/id/471953-L.jpg"
     },
     {
-      "coverUrl": "https://covers.openlibrary.org/b/id/13151170-L.jpg",
-      "description": "A magical story about following your dreams and listening to your heart.",
-      "isbn": "9780062315007",
-      "numberOfPages": 208,
-      "price": 14.99,
-      "publishedYear": 1988,
-      "publisher": "HarperOne",
-      "stock": 42,
-      "rating": 4,
-      "title": "The Alchemist"
+      "title": "The River Devil",
+      "authorName": "Diane Whiteside",
+      "coverUrl": "https://covers.openlibrary.org/b/id/505653-M.jpg"
     },
     {
-      "coverUrl": "https://covers.openlibrary.org/b/id/12634691-L.jpg",
-      "description": "A story of friendship, betrayal, and redemption set against the backdrop of Afghanistan's tumultuous history.",
-      "isbn": "9781400033416",
-      "numberOfPages": 371,
-      "price": 16.99,
-      "publishedYear": 2003,
-      "publisher": "Riverhead Books",
-      "stock": 27,
-      "rating": 5,
-      "title": "The Kite Runner"
+      "title": "Fifty Shades of Grey",
+      "authorName": "E. L. James",
+      "coverUrl": "https://covers.openlibrary.org/b/id/10740111-L.jpg"
+    },
+    {
+      "title": "Court of Mist and Fury",
+      "authorName": "Sarah J. Maas",
+      "coverUrl": "https://covers.openlibrary.org/b/id/14416194-L.jpg"
     }
   ]
 }
