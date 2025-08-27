@@ -1,0 +1,79 @@
+{
+  "categories": [
+    {
+      "name": "Fiction",
+      "description": "Novels, short stories, and other imaginative literature",
+      "coverUrl": "https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=387&auto=format&fit=crop"
+    },
+    {
+      "name": "Non-Fiction",
+      "description": "Factual literature based on real events, people, and information",
+      "coverUrl": "https://images.unsplash.com/photo-1589998059171-988d887df646?q=80&w=1776&auto=format&fit=crop"
+    },
+    {
+      "name": "Science Fiction",
+      "description": "Fiction with imaginative concepts like futuristic science and technology",
+      "coverUrl": "https://images.unsplash.com/photo-1518497927675-245083503cdc?q=80&w=1770&auto=format&fit=crop"
+    },
+    {
+      "name": "Mystery",
+      "description": "Fiction dealing with the solution of a crime or the unraveling of secrets",
+      "coverUrl": "https://images.unsplash.com/photo-1567301074221-5c754f2fb48e?q=80&w=1771&auto=format&fit=crop"
+    },
+    {
+      "name": "Romance",
+      "description": "Stories centered on romantic relationships and love",
+      "coverUrl": "https://images.unsplash.com/photo-1474552226712-ac0f0961a954?q=80&w=1771&auto=format&fit=crop"
+    },
+    {
+      "name": "Fantasy",
+      "description": "Fiction featuring magical and supernatural elements",
+      "coverUrl": "https://images.unsplash.com/photo-1520209759809-a9bcb6cb3241?q=80&w=1888&auto=format&fit=crop"
+    },
+    {
+      "name": "Biography",
+      "description": "Detailed description of a person's life and achievements",
+      "coverUrl": "https://images.unsplash.com/photo-1516979187457-637abb4f9353?q=80&w=1770&auto=format&fit=crop"
+    },
+    {
+      "name": "History",
+      "description": "Books focusing on past events and their implications",
+      "coverUrl": "https://images.unsplash.com/photo-1461360370896-922624d12aa1?q=80&w=1774&auto=format&fit=crop"
+    },
+    {
+      "name": "Self-Help",
+      "description": "Books offering advice for personal improvement",
+      "coverUrl": "https://images.unsplash.com/photo-1535572290543-960a8046f5af?q=80&w=1770&auto=format&fit=crop"
+    },
+    {
+      "name": "Thriller",
+      "description": "Fiction designed to hold tension and excitement for readers",
+      "coverUrl": "https://images.unsplash.com/photo-1543847473-dc60889684ec?q=80&w=1887&auto=format&fit=crop"
+    },
+    {
+      "name": "Business",
+      "description": "Books about entrepreneurship, management, and corporate strategies",
+      "coverUrl": "https://images.unsplash.com/photo-1553028826-cc8584e3e767?q=80&w=1770&auto=format&fit=crop"
+    },
+    {
+      "name": "Science",
+      "description": "Books about scientific discoveries, theories, and research",
+      "coverUrl": "https://images.unsplash.com/photo-1507413245164-6160d8298b31?q=80&w=1770&auto=format&fit=crop"
+    },
+    {
+      "name": "Travel",
+      "description": "Books about destinations, cultures, and travel experiences",
+      "coverUrl": "https://images.unsplash.com/photo-1499591934245-40b55745b905?q=80&w=1772&auto=format&fit=crop"
+    },
+    {
+      "name": "Cooking",
+      "description": "Books featuring recipes, cooking techniques, and culinary journeys",
+      "coverUrl": "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=1770&auto=format&fit=crop"
+    },
+    {
+      "name": "Comics & Graphic Novels",
+      "description": "Illustrated stories and narratives in sequential art form",
+      "coverUrl": "https://images.unsplash.com/photo-1608889476518-53c1fa250402?q=80&w=1780&auto=format&fit=crop"
+    }
+  ]
+}
